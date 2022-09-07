@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API-POST-JSON</title>
+</head>
+<body>
+    <input type="text" placeholder="title" name="" id="title">
+    <br> <br>
+    <input type="text" placeholder="Posr er manin line" name="" id="bodyContent">
+    <br> <br>
+    <button id="submit" type="submit">Submit</button>
+
+    <script>
+        // Post Request Pathano
+        // Data Post or Normal get Method :-
+
+        const postInfo = {
+                title: 'foooooooooo',
+                body: 'barrrrrrrrrrrrr',
+                userId: 1,
+                }
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify(postInfo),
+            headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => console.log(data));       
+
+       
+       
+        // input nea post to server :-
+        
+        document.getElementById("submit").addEventListener("click", function(){
+           const title = document.getElementById("title").value;
+           const body = document.getElementById("bodyContent").value;
+           const post = {title: title, body: bodyContent};
+           nowPostToServer(post);
+        })
+
+                function nowPostToServer(postInfo)    {
+                    fetch('https://jsonplaceholder.typicode.com/posts', {
+                        method: 'POST',
+                        body: JSON.stringify(postInfo),
+                        headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                        },
+                })
+                .then((response) => response.json())
+                .then((data) => console.log(data));   
+                 }
+
+
+
+
+
+    </script>
+</body>
+</html>
